@@ -86,32 +86,23 @@ input:checked + label + .content {
 <!-- 01 Begin -->  
 <div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
 <h2> What Do Customers Typically Want to Know?   </h2>
-  <div class="w3-container">
-
-<h2>Accordions</h2>
-<p>An accordion is used to show (and hide) HTML content:</p>
-  
-<button onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3-left-align">Open Section 1</button>
-<div id="Demo1" class="w3-container w3-hide">
-  <h4>Section 1</h4>
-  <p>Some text..</p>
-   <h4>Section 2</h4>
-<p>Some text..</p>
+<input type="checkbox" id="title1" />
+<label for="title1">Accordion One</label>
+<div class="content">
+<p>Your content goes here.</p>
 </div>
 
-
-
+<input type="checkbox" id="title2" />
+<label for="title2">Accordion Two</label>
+<div class="content">
+<p>Your content goes here.</p>
 </div>
-<script>
-function myFunction(id) {
-  var x = document.getElementById(id);
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
+
+<input type="checkbox" id="title3" />
+<label for="title3">Accordion Three</label>
+<div class="content">
+<p>Your content goes here.</p>
+</div>
 </div>
 <!-- 01 End -->    
   
