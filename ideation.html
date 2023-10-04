@@ -11,43 +11,24 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 <!-- accordion style begin -->
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-a {
-  text-decoration: none;
-  color: inherit;
+/* Accordion CSS for white dropdown */
+.accordion {
+  background: white;
+  border: 1px solid #EDEDED;
+  border-radius: 5px;
+  font-weight: 700;
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
-
-ul {
-  list-style: none;
-  padding: 0;
+.accordionDrop {
+  padding: 0px 30px;
 }
 
-ul .inner {
-  padding-left: 1em;
-  overflow: hidden;
+::-webkit-details-marker { 
   display: none;
 }
-
-ul li {
-  margin: 0.5em 0;
-}
-
-ul li a.toggle {
-  width: 100%;
-  display: block;
-  background: rgba(0, 0, 0, 0.78);
-  color: #fefefe;
-  padding: 0.75em;
-  border-radius: 0.15em;
-  transition: background 0.3s ease;
-}
-
-ul li a.toggle:hover {
-  background: rgba(0, 0, 0, 0.9);
-}
-
 <!-- accordion style end -->
 
 </style>
@@ -87,39 +68,26 @@ ul li a.toggle:hover {
 <!-- End Header -->
 
 <!-- 01 Begin -->  
-<div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
-<h2> What Do Customers Typically Want to Know?   </h2>
-<ul class="accordion">
-  <li>
-    <a class="toggle" href=#>Item 1</a>
-    <p class="inner">
-      Let's make a nice big leafy tree. You have to make those little noises or it won't work. Let's put some happy little clouds in our world. We don't really know where this goes - and I'm not sure we really care. When you do it your way you can go anywhere you choose. No worries. No cares. Just float and wait for the wind to blow you around.
-    </p>
-  </li>
+<!--Accordion 1-->
+<details>
+  <summary class="accordion">What is an accordion?</summary>
   
-  <li>
-    <a class="toggle" href=#>Item 2</a>
-    <p class="inner">
-      Let's make a nice big leafy tree. You have to make those little noises or it won't work. Let's put some happy little clouds in our world. We don't really know where this goes - and I'm not sure we really care. When you do it your way you can go anywhere you choose. No worries. No cares. Just float and wait for the wind to blow you around.
-    </p>
-  </li>
-  
-  <li>
-    <a class="toggle" href=#>Item 3</a>
-    <p class="inner">
-      Let's make a nice big leafy tree. You have to make those little noises or it won't work. Let's put some happy little clouds in our world. We don't really know where this goes - and I'm not sure we really care. When you do it your way you can go anywhere you choose. No worries. No cares. Just float and wait for the wind to blow you around.
-    </p>
-  </li>
-  
-  <li>
-    <a class="toggle" href=#>Item 4</a>
-    <p class="inner">
-      Let's make a nice big leafy tree. You have to make those little noises or it won't work. Let's put some happy little clouds in our world. We don't really know where this goes - and I'm not sure we really care. When you do it your way you can go anywhere you choose. No worries. No cares. Just float and wait for the wind to blow you around.
-    </p>
-  </li>
-</ul>
+  <div class="accordionDrop">What you just did was click on an accordion. Essentially, an accordion is a graphical control element comprising a vertically stacked list of of items that can be expanded or collapsed to reveal content.</div>
+</details>
 
-</div>
+<!--Accordion 2-->
+<details>
+  <summary class="accordion">What do you use an accordion for?</summary>
+  
+  <div class="accordionDrop">An accordion is great for hiding information that you only want to be display when a user is interested. For example: Using an accordion is great on a frequently asked questions page, especially if you have a bunch of questions!</div>
+</details>
+
+<!--Accordion 3-->
+<details>
+  <summary class="accordion">I still need help!</summary>
+  
+  <div class="accordionDrop">I'm always open to helping you out. If you wish to contact me, my <a href="http://twitter.com/techjohnson">Twitter</a> is always open!</div>
+</details>
 <!-- 01 End -->    
   
 
@@ -138,25 +106,6 @@ ul li a.toggle:hover {
 </div>
 
 <script>
-//accordion script begin
-  $('.toggle').click(function(e) {
-  	e.preventDefault();
-  
-    let $this = $(this);
-  
-    if ($this.next().hasClass('show')) {
-        $this.next().removeClass('show');
-        $this.next().slideUp(350);
-    } else {
-        $this.parent().parent().find('li .inner').removeClass('show');
-        $this.parent().parent().find('li .inner').slideUp(350);
-        $this.next().toggleClass('show');
-        $this.next().slideToggle(350);
-    }
-});
-
-// accordion script end  
-  
 // Script to open and close sidebar begin
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
