@@ -11,40 +11,7 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 <!-- accordion style begin -->
-input {
-    display: none;
-}
 
-label {
-    display: block;    
-    padding: 8px 22px;
-    margin: 0 0 1px 0;
-    cursor: pointer;
-    background: #666699;
-    border-radius: 3px;
-    color: #FFF;
-    transition: ease .5s;
-}
-
-label:hover {
-    background: #003366;
-}
-
-.content {
-    background: #ffffff;
-    padding: 10px 25px;
-    border: 1px solid #CCCC99;
-    margin: 0 0 1px 0;
-    border-radius: 3px;
-}
-
-input + label + .content {
-    display: none;
-}
-
-input:checked + label + .content {
-    display: block;
-}
 <!-- accordion style end -->
 
 </style>
@@ -86,23 +53,8 @@ input:checked + label + .content {
 <!-- 01 Begin -->  
 <div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
 <h2> What Do Customers Typically Want to Know?   </h2>
-<input type="hidden" id="title1" />
-<label for="title1">Accordion One</label>
-<div class="content">
-<p>Your content goes here.</p>
-</div>
 
-<input  type="hidden" id="title2" />
-<label for="title2">Accordion Two</label>
-<div class="content">
-<p>Your content goes here.</p>
-</div>
 
-<input type="hidden" id="title3" />
-<label for="title3">Accordion Three</label>
-<div class="content">
-<p>Your content goes here.</p>
-</div>
 </div>
 <!-- 01 End -->    
   
