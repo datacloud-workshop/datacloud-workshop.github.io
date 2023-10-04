@@ -11,6 +11,42 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 <!-- accordion style begin -->
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul .inner {
+  padding-left: 1em;
+  overflow: hidden;
+  display: none;
+}
+
+ul li {
+  margin: 0.5em 0;
+}
+
+ul li a.toggle {
+  width: 100%;
+  display: block;
+  background: rgba(0, 0, 0, 0.78);
+  color: #fefefe;
+  padding: 0.75em;
+  border-radius: 0.15em;
+  transition: background 0.3s ease;
+}
+
+ul li a.toggle:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
 
 <!-- accordion style end -->
 
@@ -53,7 +89,35 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 <!-- 01 Begin -->  
 <div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
 <h2> What Do Customers Typically Want to Know?   </h2>
-
+ul class="accordion">
+  <li>
+    <a class="toggle" href=#>Item 1</a>
+    <p class="inner">
+      Let's make a nice big leafy tree. You have to make those little noises or it won't work. Let's put some happy little clouds in our world. We don't really know where this goes - and I'm not sure we really care. When you do it your way you can go anywhere you choose. No worries. No cares. Just float and wait for the wind to blow you around.
+    </p>
+  </li>
+  
+  <li>
+    <a class="toggle" href=#>Item 2</a>
+    <p class="inner">
+      Let's make a nice big leafy tree. You have to make those little noises or it won't work. Let's put some happy little clouds in our world. We don't really know where this goes - and I'm not sure we really care. When you do it your way you can go anywhere you choose. No worries. No cares. Just float and wait for the wind to blow you around.
+    </p>
+  </li>
+  
+  <li>
+    <a class="toggle" href=#>Item 3</a>
+    <p class="inner">
+      Let's make a nice big leafy tree. You have to make those little noises or it won't work. Let's put some happy little clouds in our world. We don't really know where this goes - and I'm not sure we really care. When you do it your way you can go anywhere you choose. No worries. No cares. Just float and wait for the wind to blow you around.
+    </p>
+  </li>
+  
+  <li>
+    <a class="toggle" href=#>Item 4</a>
+    <p class="inner">
+      Let's make a nice big leafy tree. You have to make those little noises or it won't work. Let's put some happy little clouds in our world. We don't really know where this goes - and I'm not sure we really care. When you do it your way you can go anywhere you choose. No worries. No cares. Just float and wait for the wind to blow you around.
+    </p>
+  </li>
+</ul>
 
 </div>
 <!-- 01 End -->    
@@ -74,7 +138,26 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 </div>
 
 <script>
-// Script to open and close sidebar
+//accordion script begin
+  $('.toggle').click(function(e) {
+  	e.preventDefault();
+  
+    let $this = $(this);
+  
+    if ($this.next().hasClass('show')) {
+        $this.next().removeClass('show');
+        $this.next().slideUp(350);
+    } else {
+        $this.parent().parent().find('li .inner').removeClass('show');
+        $this.parent().parent().find('li .inner').slideUp(350);
+        $this.next().toggleClass('show');
+        $this.next().slideToggle(350);
+    }
+});
+
+// accordion script end  
+  
+// Script to open and close sidebar begin
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
@@ -84,6 +167,7 @@ function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
+// Script to open and close sidebar end
 </script>
 
 </body>
