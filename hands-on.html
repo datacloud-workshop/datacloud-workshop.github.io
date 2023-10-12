@@ -81,11 +81,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     but you will not create new configurations.</p>
 </div>
 
+ <!-- Part 1 Begin --> 
 <div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
 <h2> Part - 1: Pre-configurations </h2>
-<p>  This section has been completed for you. Following are the steps in this section. </p>
+<h3>  This section has been completed for you by the instructor. Participants will not work in this section. </h3>
  <p> Data Cloud has been provisioned in this instance of Salesforce and is available as an app in the Org. 
-   This Org is now known as the Home Org of Data Cloud. </p>
+  This Org is now known as the Home Org of Data Cloud. </p>
   
 <p>"Turn on" Data Cloud by adding users to permisson sets. For example assign the Data Cloud Admin permission set to 
   the sysadmin who will manage the Data Cloud instance. </p>
@@ -112,8 +113,47 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </div>
 </details>
   
-</div>
+<p> The Data Cloud Setup button takes you to the pre-configuration page.
+</p>
+   <details>
+  <summary class="accordion">  Data Cloud App - Setup </summary>
+  <div class="accordionDrop">
+   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/05-dc-setup-workshop.jpg> </div>
+  </div>
+</details>
 
+  <p> Click on the CRM Connector and then Connect.  The CRM Connector provides a pre-built connection from Salesforce Orgs to 
+    Data Cloud. You can set up ingestion of records (i.e., create Data Streams) from either standard or custom objects. The ingestion schedule is hourly refresh.
+</p>
+   <details>
+  <summary class="accordion">  Data Cloud App - Setup </summary>
+  <div class="accordionDrop">
+   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/06-dc-crm connector-workshop.jpg> </div>
+  </div>
+</details>
+  
+ <p> Note that even though Data Cloud is provisioned in the Home Org, you still need to explictly establish a connection 
+   to the Org which is the Home Org.
+ </p>
+   <details>
+  <summary class="accordion">  Data Cloud App - Setup </summary>
+  <div class="accordionDrop">
+   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/06-dc-crm connector-workshop-2.jpg> </div>
+  </div>
+</details>
+
+   <p> Install the Data Bundle for the CRM Connector. The Data Bundle consists of pre-defined mappings for 
+     certain Salesforce objects (Account, Contact, Leads for Sales Bundle and Account, Contact, Cases for Service Bundle).
+ </p>
+   <details>
+  <summary class="accordion">  Data Cloud App - Setup </summary>
+  <div class="accordionDrop">
+   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/06-dc-crm connector-workshop-2.jpg> </div>
+  </div>
+</details>
+  
+</div>
+ <!-- Part 1 End --> 
   
  
 
