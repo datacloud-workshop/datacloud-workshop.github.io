@@ -70,6 +70,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 <!-- End Header -->
   <div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
 <h2>Workshop Use Case Architecture </h2>
+    <p> A company has customers in two different systems (two different Orgs in our example). The customers 
+      in different system  have different profile values (e.g., different last names, phone numbers) and each system has it's own 
+      set of leads, accounts, contacts. </p>
+      
+      <p>In this lab, we ingest  data from the two systems (i.e., the two orgs), harmonize the profiles by mapping them to one 
+        common data  model in Data Cloud. We then resolve their  different identities to one unified profile.  </p>
+    <p> We now create  Calculated Insights (i.e., analytics) on these customers and also segment them (i.e., create group) into 
+    a set of customers whom we want to reach out to.</p>
+    <p>Data Cloud has native connection to Marketing Cloud and many other systems so these segments that we create can 
+      become easily available in many  activation targets (i.e., the marketing and ad systems and also other external systems like Amazon and Google)
+      for use in marketing communications. In our example, we store segmented data into Data Cloud itself which can then be used to trigger 
+      Platform Events or be retrieved through API calls for use externally by any app.
+    </p>
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/01-use-case-workshop.jpg> </div>
 </div>
 
