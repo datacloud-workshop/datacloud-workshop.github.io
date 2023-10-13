@@ -236,6 +236,18 @@ For example, a customer may be called contact in Salesforce Org and may be calle
   </div>  
   </details> 
 
+    <details>    
+<summary class="accordion">  Data Explorer </summary> 
+<div class="accordionDrop">
+  <p> Click on Data Explorer in the Data Cloud app. Put in the options 
+    as you see in the following screenshot </p>   
+<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/dataexplorer.jpg> </div>
+  The Individual data model object contains all the individual profiles aggregated from the incoming data sources.
+  In the next step of Identity Resolution, we shall use match rules to merge individual profiles that belong to the same person in Unified
+  Individual data model object.
+</div>    
+ </details> 
+    
      <details>    
   <summary class="accordion"> Identity Resolution: Match Rules </summary>
  <p style="color:blue;">  <strong> This step has been completed for you by the instructor. This is only an informational section for participants.  </strong>
@@ -275,15 +287,54 @@ For example, a customer may be called contact in Salesforce Org and may be calle
       <p> Examples of  reconciliation rules are - Last Updated, Most Frequent, Source Priority. </p>
   <p> A Data Cloud admin would have the ability to change these reconciliation rules as desired for each field. </p>   
     <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/identity-reconciliation.jpg> </div>
- 
-
   </div>    
     </details> 
 
+    <details>    
+<summary class="accordion">  Profile Explorer </summary> 
+<div class="accordionDrop">
+  <p> Click on Profile Explorer in the Data Cloud app. Put in the options to filter the unified profiles 
+    as you see in the following screenshot 
+  (i.e., Unified Individual, First Name, Robert)</p>   
+<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/profile-explorer-1.jpg> </div>
+  <p> Click on View. You now see that two different contacts with two different first names have been merged into
+  one unified individual profile using the rulesets and reconciliation rules that we had chosen.</p>
+  <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/profile-explorer-2.jpg> </div>
+</div>    
+ </details> 
     
   </div>
   <!-- Part 2 End -->
-  
+
+    <!-- Part 3 Begin -->
+<div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
+<h2> Part - 3: Experiment </h2> 
+<details>    
+<summary class="accordion">  Calculated Insights </summary>
+<p> Calculated Insight  lets you  define and calculate multidimensional metrics on the 
+data in Data Cloud. Marketers can use metrics to filters segment criteria for personalizing activation. 
+  Data analysts can visualize the insights in CRM Analytics to understand data patterns.
+</p>  
+  <p> Let's create a Calculated Insight.</p>
+  <p> We shall create a calculated insight that contains one record per unified individual and 
+    includes counts that show how often each person appears as a contact, 
+    lead, and account, and how often they appear across multiple orgs, if applicable.
+</p>
+<div class="accordionDrop">
+<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-1.jpg> </div>
+<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-2.jpg> </div>
+ <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-3.jpg> </div>
+  <p style="color:blue;">  <strong>
+    After you have created the Calculated Insight, ping your instructor so he/she can Publish it. 
+  A participant user does not have the permissions required to publish a Calculated Insight.</strong>
+</p>
+ <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-4.jpg> </div>
+ <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-5.jpg> </div>
+</div>    
+ </details> 
+
+  </div>
+    <!-- Part 3 End -->
 
 <!-- End page content -->
 <hr>
