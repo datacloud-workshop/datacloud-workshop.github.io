@@ -369,16 +369,16 @@ SELECT UnifiedIndividual__dlm.ssot__Id__c AS Customer_Id__c ,approx_count_distin
   <p>   First we create a calculated insight to identify customers who have purchased a product from the company, i.e., who
   have a sales order.</p>   
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-ci-1.jpg> </div>
-<p> &nnsp;</p>
+<p> &nbsp;</p>
   <blockquote> 
     <strong> Replace the placeholder code with the following sql.</strong>
     SELECT SUM(ssot__SalesOrder__dlm.ssot__GrandTotalAmount__c) as customer_spend__c, ssot__Individual__dlm.ssot__Id__c as custid__c FROM ssot__SalesOrder__dlm JOIN ssot__Individual__dlm ON ssot__SalesOrder__dlm.ssot__Id__c = ssot__Individual__dlm.salesOrderID__c GROUP BY custid__c
   
   </blockquote>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-ci-2.jpg> </div>
-<p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-ci-3.jpg> </div>
-<p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-ci-4.jpg> </div>
 </div>    
  </details>
@@ -388,38 +388,38 @@ SELECT UnifiedIndividual__dlm.ssot__Id__c AS Customer_Id__c ,approx_count_distin
 <div class="accordionDrop">
   <p>  We use attributes from both the Individual DMO and the Calculated Insight we had created to create a marketing segment.  </p>   
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-1.jpg> </div>
-<p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-2.jpg> </div>
-<p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-3.jpg> </div>
-<p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-4.jpg> </div>
-  <p> &nnsp;</p>
+ <p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-5.jpg> </div>
-  <p> &nnsp;</p>
+  <p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-6.jpg> </div>
-  <p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/segment-7.jpg> </div>
 </div>    
  </details>
 
-
+   <details>   
   <summary class="accordion">  Segment Creation - Step III: Activation </summary> 
 <div class="accordionDrop">
-  <p>  We use attributes from both the Individual DMO and the Calculated Insight we had created to create a marketing segment.  </p>   
-<p> &nnsp;</p>
+  <p>  We use attributes from both the Individual DMO and our  Calculated Insight to create a marketing segment.  </p>   
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/activation-1.jpg> </div>
-<p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/activation-2.jpg> </div>
-<p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/activation-3.jpg> </div>
-  <p> &nnsp;</p>
+ <p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/activation-4.jpg> </div>
-  <p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/activation-5.jpg> </div>
-  <p> &nnsp;</p>
+ <p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/activation-6.jpg> </div>
-   <p> &nnsp;</p>
+<p> &nbsp;</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/activation-7.jpg> </div>
 <p> In the above example, we have chosen Data Cloud itself to be an activation target. What this means is that
 the  segement data is stored in a custom Data Model Object (DMO) that gets created in Data Cloud. Data from this 
