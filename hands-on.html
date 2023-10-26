@@ -217,8 +217,8 @@ Following are the steps for configuring the CRM Connector which will then allow 
     can be extended by adding custom objects and custom fields.</p>
     <p>Here's an example. In your different sources your customer may be known by different labels/names.
       E.g., In an email marketing app the customer may be known as a 'subscriber' while in the CRM app
-      the same customer may be known as a 'contact.' In the harmonization step we map all those different source 
-      'customer objects' to one standard definition.
+      the same customer may be known as a 'contact.' In the harmonization step they will both get mapped 
+  to the Individual object in Data Cloud's canonical data model.
     </p>
     <details>    
   <summary class="accordion">  Harmonization: Data Stream Mappings </summary>
@@ -230,11 +230,9 @@ Following are the steps for configuring the CRM Connector which will then allow 
     <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/datastream-05.jpg> </div>
 <p> <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/datastream-06.jpg> </div> </p> 
 <p> The harmonization process that we see above maps multiple source objects to a set of consistent objects and fields in the canonical data model.
-For example, a customer may be called contact in Salesforce Org and may be called subscriber in a marketing app.
-  When data about the customer is ingested from these two different data sources, they will both get mapped 
-  to the Individual object in Data Cloud's canonical data model (i.e., the set of Data Model Objects).
 </p>
-    <p>This powerful feature harmonizes data that can then be matched and resolved to unique identities in the next step of 
+    <p> Data Cloud provides AI based  <a target="_blank" href="https://help.salesforce.com/s/articleView?id=release-notes.cdp_rn_2023_summer_auto_mapping.htm&release=244&type=5"> auto-mapping suggestions </a> during the Harmonization step. </p>
+    <p>This harmonized data can then be matched and resolved to unique identities in the next step of 
     Identity Resolution.</p>
   </div>    
     </details> 
