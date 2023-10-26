@@ -290,7 +290,7 @@ Following are the steps for configuring the CRM Connector which will then allow 
     <p> We start by defining match rules. We choose First Name and eMail as the identifiers for our match rule. However you can make the match rule
     as extensive as you wish using and/or constructs. You can also include custom identiers in your match rule such as 
     MDM ID.</p>
-<p> In our match ruleset, we  leverage  AI based fuzzy first-name matching approach that leverages a large language model (LLM) to match individuals. </p>
+<p> In our match ruleset, we  leverage  <a target="_blank" href="https://engineering.salesforce.com/ai-based-identity-resolution-the-key-for-linking-diverse-customer-data/"> AI /LLM based </a> fuzzy first-name matching approach that leverages to match individuals. </p>
     
     <p>We went through the following screens in this step. </p>
  <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/identity-01.jpg> </div>
@@ -316,7 +316,7 @@ Following are the steps for configuring the CRM Connector which will then allow 
   <p>While match rules that we used in the previous steps are used to link together data into a unified customer profile, 
     reconciliation rules determine the logic for data selection. 
     For example, if the contact has two different first names in two Orgs, 
-    a reconciliation rule helps to determin which one to actually use in the unified individual profile. </p> 
+    a reconciliation rule helps to determine which one to actually use in the unified individual profile. </p> 
       <p> Examples of  reconciliation rules are - Last Updated, Most Frequent, Source Priority. </p>
   <p> A Data Cloud admin would have the ability to change these reconciliation rules as desired for each field. </p>   
     <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/identity-reconciliation.jpg> </div>
