@@ -107,20 +107,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
  <p> Data Cloud has been provisioned in this instance of Salesforce and is available as an app in the Org. 
   This Org is now known as the Home Org of Data Cloud. </p>
   
-<p>When Data Cloud is provisioned in your Org, several out of the box (standard) permission sets become available. 
-"Turn on" Data Cloud by adding users to permisson sets. For example assign the Data Cloud Admin permission set to 
-  the sysadmin who will manage the Data Cloud instance. </p>
   <details>
   <summary class="accordion">  Data Cloud Permissions  </summary>
   <div class="accordionDrop">
-    <p> Permission Sets give you granular control such as which users in your org can do what activity in your Data Cloud instance. 
-    For example, Data Cloud Admin permission set enables sysadmins tasks (e.g., configure connectors) while the 
-      Data Cloud User permission let view the configurations in Data Cloud org. You can create your own custom permission sets as well.
-    </p>
+  <p>Permission Sets give you granular control such as which users in your org can do what activity in your Data Cloud instance.  
+  </p>
+    
+<p>When Data Cloud is provisioned in your Org, several out of the box (standard) permission sets become available. <p> 
+<p> "Turn on" Data Cloud by adding users to permisson sets. For example assign the Data Cloud Admin permission set to 
+  the sysadmin who will manage the Data Cloud instance. </p>
    <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/02-dc-permission-sets-workshop.jpg> </div>
   </div>
 </details>
-<p> With the  permission sets  assigned, a user can view the Data Cloud app in the App  Launcher. </p> 
+<p> With the  correct permission sets  assigned, a user can view the Data Cloud app in the App  Launcher. </p> 
    <details>
   <summary class="accordion">  Data Cloud App  </summary>
   <div class="accordionDrop">
@@ -128,10 +127,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </div>
 </details>
 
-<p> You have been assigned the Data Cloud User permission set which allows you to examine the app and all the configuratins.
+<p> The workshop participants have been assigned the 'Data Cloud User' permission set which allows you to examine the Data Cloud configurations.
 </p> 
    <details>
   <summary class="accordion">  Data Cloud App - Menu Tabs </summary>
+     <p> Here's a quick look at the various Data Cloud tools available as tabs in the Data Cloud app.</p>
   <div class="accordionDrop">
    <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/04-dc-tabs-workshop.jpg> </div>
   </div>
@@ -146,16 +146,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </div>
 </details>
 
-  <p> Click on the CRM Connector and then Connect.  The CRM Connector provides a pre-built connection from Salesforce Orgs to 
+Following are the steps for configuring the CRM Connector which will then allow us to create Data Streams for ingesting data.
+   <details>
+  <summary class="accordion">  Connector Configuration </summary>
+     mid
+  <div class="accordionDrop">
+      <p> We click on the CRM Connector and then Connect.  The CRM Connector provides a pre-built connection from Salesforce Orgs to 
     Data Cloud. You can set up ingestion of records (i.e., create Data Streams) from either standard or custom objects. The ingestion schedule is hourly refresh.
 </p>
 
-   <p> Note that even though Data Cloud is provisioned in the Home Org, you still need to explictly establish a connection 
+   <p> Note that even though Data Cloud is provisioned in the Home Org, we still need to explictly establish a connection 
    to the Org which is the Home Org.
  </p>
-   <details>
-  <summary class="accordion">  Connector Configuration </summary>
-  <div class="accordionDrop">
    <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/06-dc-crm-connector-workshop.jpg> </div>
 <p> &nbsp;</p>
        <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/06-dc-crm-connector-workshop-2.jpg> </div>
