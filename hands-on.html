@@ -271,17 +271,21 @@ Following are the steps for configuring the CRM Connector which will then allow 
  </details> 
     
      <details>    
+       <p> With Data Cloud’s Identity Resolution, we can build a 360-degree view of our customers by combining data from multiple data sources into a single Unified Profile. </p>
+            <p>  Identity Resolution uses a combination of matching 
+         and reconciliation.  Match Rules are used to link together multiple records into a unified customer profile. Reconciliation rules determine which  profile attributes of Individuals will become part of the Unified Profile.   </p>
   <summary class="accordion"> Identity Resolution: Match Rules </summary>
  <p style="color:blue;">  <strong> This step has been completed for you by the instructor. This is only an informational section for participants.  </strong>
 </p>    
   <div class="accordionDrop">
-    <p> Many of the  contacts in the two different systems (i.e., the two Salesforce Orgs) in this example belong to the same individual person.
-    However the contacts have different profile attributes. For example in one Org the person has a contact name Bobby Lombard
+
+    <p> Many of the  customers/contacts in the two different systems (e.g., the two Salesforce Orgs) belong to the same individual person.
+    However the contacts have different profiles. For example in one Org the person has a contact name Bobby Lombard
     while in another Org, the person has the name Robert Lombard. </p>
     <p> We want to match these different contacts into one unified profile. 
     This will allow us then to aggregate all the leads and other engagement data under this unified profile for a 360 degree view of the customer.
     </p>
-    <p> We choose First Name and eMail as the identifiers for our match rule. However you can make the match rule
+    <p> We start by defining match rules. We choose First Name and eMail as the identifiers for our match rule. However you can make the match rule
     as extensive as you wish using and/or constructs. You can also include custom identiers in your match rule such as 
     MDM ID.</p>
 <p> In our match ruleset, we  leverage  AI based fuzzy first-name matching approach that leverages a large language model (LLM) to match individuals. </p>
