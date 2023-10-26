@@ -212,13 +212,23 @@ Following are the steps for configuring the CRM Connector which will then allow 
           
   </div>
 </details>  
-
+    <p> Harmonization refers to the process of  modeling different data sources into one
+      standardized data model available in Data Cloud. The standard Cloud data  model
+    can be extended by adding custom objects and custom fields.</p>
+    <p>Here's an example. In your different sources your customer may be known by different labels/names.
+      E.g., In an email marketing app the customer may be known as a 'subscriber' while in the CRM app
+      the same customer may be known as a 'contact.' In the harmonization step we map all those different source 
+      'customer objects' to one standard definition.
+    </p>
     <details>    
   <summary class="accordion">  Harmonization: Data Stream Mappings </summary>
   <div class="accordionDrop">
+    <p>  The first step in harmonization is mapping. When you create a 
+    'Data Stream' the source data lands in a set of objects called Data Lake Objects (DLO). These DLOs are now
+    mapped to the standard data model in Data Cloud which consist of a set of objects called Data Model Objects (DMO). </p>
     <p> Let's click on one of the Data Streams and then click on Review Mappings on the right sidebar.</p>
     <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/datastream-05.jpg> </div>
- <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/datastream-06.jpg> </div>
+<p> <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/datastream-06.jpg> </div> </p> 
 <p> The harmonization process that we see above maps multiple source objects to a set of consistent objects and fields in the canonical data model.
 For example, a customer may be called contact in Salesforce Org and may be called subscriber in a marketing app.
   When data about the customer is ingested from these two different data sources, they will both get mapped 
