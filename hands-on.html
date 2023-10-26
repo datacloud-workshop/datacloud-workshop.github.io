@@ -149,7 +149,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 Following are the steps for configuring the CRM Connector which will then allow us to create Data Streams for ingesting data.
    <details>
   <summary class="accordion">  Connector Configuration </summary>
-     mid
   <div class="accordionDrop">
       <p> We click on the CRM Connector and then Connect.  The CRM Connector provides a pre-built connection from Salesforce Orgs to 
     Data Cloud. You can set up ingestion of records (i.e., create Data Streams) from either standard or custom objects. The ingestion schedule is hourly refresh.
@@ -158,18 +157,20 @@ Following are the steps for configuring the CRM Connector which will then allow 
    <p> Note that even though Data Cloud is provisioned in the Home Org, we still need to explictly establish a connection 
    to the Org which is the Home Org.
  </p>
+    <p> Please also note that in the org(s) that you want to connect to Data Cloud, you need to assign appropriate 
+    permissions to the <a target="_blank" href="https://help.salesforce.com/s/articleView?id=sf.c360_a_enable_user_permissions_external_salesforce_org.htm&type=5"> Data Cloud Salesforce Connector permission set. </a> </p>
    <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/06-dc-crm-connector-workshop.jpg> </div>
 <p> &nbsp;</p>
        <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/06-dc-crm-connector-workshop-2.jpg> </div>
   </div>
 </details>
 
-   <p> Install the Data Bundle for the CRM Connector. The Data Bundle consists of pre-defined mappings for 
-     certain Salesforce objects (Account, Contact, Leads for Sales Bundle and Account, Contact, Cases for Service Bundle).
+   <p> Install the Data Bundle for the CRM Connector. 
  </p>
    <details>
   <summary class="accordion">  Install Data Bundle </summary>
   <div class="accordionDrop">
+    <p> The Data Bundle consists of pre-defined mappings for  certain Salesforce objects (Account, Contact, Leads for Sales Bundle and Account, Contact, Cases for Service Bundle).</p>
    <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/07-install-bundle.jpg> </div>
   </div>
 </details>
