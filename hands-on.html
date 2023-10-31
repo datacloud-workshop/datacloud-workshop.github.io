@@ -78,7 +78,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </p>
      <p> The following note describes the detailed use case scenario & solution based on the above requirement.</p>
     <p> A company has customers in two different systems (two different Orgs in our example). The customers 
-      in different system  have different profile values (e.g., different last names, phone numbers) and each system has it's own 
+      in different system  have different profile values (e.g., different first names, phone numbers) and each system has it's own 
       set of leads, accounts, contacts. </p>
       
       <p>In this lab, we ingest  data from the two systems (i.e., the two orgs), harmonize the profiles by mapping them to one 
@@ -242,7 +242,7 @@ Following are the steps for configuring the CRM Connector which will then allow 
  <details>    
   <summary class="accordion"> Data Model: Review Data Cloud Objects </summary>
   <div class="accordionDrop">
-    <p> In the Data Cloud app click on Data Lake Objects  tab.</p>
+    <p> In the Data Cloud app click on Data Lake Objects  tab. Then click dropdown and select All Data Lake Objects.</p>
     <p> The incoming data to Data Cloud  from a Data Stream lands in a Data Lake Object (DLO). The fields
     in the DLO (e.g., field name, field type, field length) mirror the fields in your source table.</p>
  <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/dlo.jpg> </div>
@@ -329,7 +329,7 @@ Following are the steps for configuring the CRM Connector which will then allow 
 <div class="accordionDrop">
   <p> Click on Profile Explorer in the Data Cloud app. Put in the options to filter the unified profiles 
     as you see in the following screenshot 
-  (i.e., Unified Individual, First Name, Robert)</p>   
+  (i.e., Unified Individual, First Name, Robert). Please note that Profile Explorer is case sensitive (e.g., Robert vs robert)</p>   
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/profile-explorer-1.jpg> </div>
   <p> Click on View. You now see that two different contacts with two different first names have been merged into
   one unified individual profile using the rulesets and reconciliation rules that we had chosen.</p>
