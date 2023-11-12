@@ -622,7 +622,11 @@ Tableau Cloud provides native connector for Data Cloud, point and click analysis
   <p> Now in the following screenshot, we use the <a target="_blank" href="https://unofficialsf.com/use-datamapper-to-convert-web-json-to-salesforce-flow-objects/"> Data Mapper </a> tool to convert JSON to Flow Variables, and then insert the value of the 
   variables in a Salesforce Object in the target Org (e.g., Lead Object in Org 1). </p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/data-action-7.jpg> </div>
- <p> &nbsp; </p>
+ 
+  <p> In real life implementation you can use similar wiring as above to create complex multi-system orchestrations  - e.g., 
+  send leads from Data Cloud to destination orgs based on certain conditions, trigger data actions to 
+    capture status of leads back to the org  in which lead originated(e.g., if the lead that was sent from one org to another is converted to an opportunity).
+  </p>
 </div>    
  </details> 
 
