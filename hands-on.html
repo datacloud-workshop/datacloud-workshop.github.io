@@ -506,14 +506,7 @@ some of the ways of leveraging Data Cloud in your business applications.</p>
     <p style="color:blue;"> This is an advanced optional section. If you prefer to skip it, we have included complete set of 
   screenshots of each step that you can review  without actually doing the steps in live environment.
 </p>
-<div class="w3-container"> <div class="w3-bar w3-teal"> <p> <center> Accessing Data Cloud Data from External Systems </center>  </p> </div> </div>
-<p> Data Cloud provides REST APIs to access data and metadata from external systems.</p>
-    <details>   
-  <summary class="accordion">  Connect (Query) API Steps </summary> 
-<div class="accordionDrop">
-  <p> <a target="_blank" href="https://www.appcloud101.com/working-with-salesforce-data-cloud-apis/"> Access Data Cloud data externally via APIs </a> </p>
- </details>
-<p> &nbsp; </p> 
+
     
  <div class="w3-container"> <div class="w3-bar w3-teal"> <p> <center> Connect Tableau with Data Cloud </center>  </p> </div> </div>
 <p> 
@@ -554,11 +547,12 @@ Tableau Cloud provides native connector for Data Cloud, point and click analysis
   the different systems in an enterprise.</p>
   <p>The following is a rough high level sketch of the steps for passing leads from Org 2 (source) to Org 1 (destination) via Data Cloud. </p>
    <p> &nbsp; </p>
-  <p> Summary of data flow:   We create a Data Action on a DMO or CI and get the payload using a Flow in Home Org. The Flow could be triggered by
+  <p> We can create a Data Action on a DMO or CI and get the payload using a 
+    Flow in the target org. The Flow could be triggered by
   the special Platform Event (Data Object Data Change Event) and the content of the payload can be mapped to fields 
   using Apex or the Flow Mapper action pack available from unoffocialSF site. </p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/00dc00.jpg> </div>
-
+<p> In our case we are going to create a Data Action on Lead DMO and our target would be Home Org for simplicity.</p>
   <p> We start by connecting the target org explicitly (even if it is the Home Org)</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/00dc01.jpg> </div>
  <p> &nbsp; </p>
@@ -637,6 +631,8 @@ an object or use them to trigger other flows.
   <p> In the next following screenshot you see that upon saving the 'value' being inserted in the object's field changes - but that's ok. </p>
       <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/da-04.jpg> </div>
  <p> &nbsp; </p>
+  <p> We see in the following screenshot that the staging table in the target org has received the JSON payload via Platform Event
+  triggered by Data Action which in turn was triggered by a change in the Lead DMO.</p>
       <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/da-05.jpg> </div>
  <p> &nbsp; </p>
   
@@ -661,7 +657,17 @@ an object or use them to trigger other flows.
 </div>    
  </details> 
 
-  
+<div class="w3-container"> <div class="w3-bar w3-teal"> <p> <center> Accessing Data Cloud Data from External Systems </center>  </p> </div> </div>
+<p> Data Cloud provides REST APIs to access data and metadata from external systems.</p>
+    <details>   
+  <summary class="accordion">  Connect (Query) API Steps </summary> 
+<div class="accordionDrop">
+  <p> <a target="_blank" href="https://www.appcloud101.com/working-with-salesforce-data-cloud-apis/"> Access Data Cloud data externally via APIs </a> </p>
+ </details>
+<p> &nbsp; </p> 
+
+
+      
 
    <p> Hope you enjoyed the hands-on. Thank you!</p>     
  </div>
