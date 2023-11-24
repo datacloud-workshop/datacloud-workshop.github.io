@@ -1,0 +1,27 @@
+openapi: 3.0.3
+components:
+  schemas:
+    orders:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        description:
+          type: string
+        email:
+          type: string
+        first_name:
+          type: string
+        total:
+          type: number
+        last_name:
+          type: string
+        ship_address:
+          type: string
+        tax_rate:
+          type: number
+        order_id:
+          type: string
+        acct_id:
+          type: string
