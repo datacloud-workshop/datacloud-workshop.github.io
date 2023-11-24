@@ -616,7 +616,7 @@ Create a Private Key (host.key) and Self Signed Certificate (host.crt) following
 <br> Refresh Token Policy - Change to “Refresh Token is Valid until revoked”
 <br> If you do not see any options in the Refresh Token Policy section, you need to update the OAuth Scopes to include “Perform requests at any time (refresh_token, offline access)”
 
-  <p> &nbp;</p>
+  <p> &nbsp;</p>
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min14.png> </div>
 
 <p> Save the changes to the Connected App </p>
@@ -628,12 +628,70 @@ Create a Private Key (host.key) and Self Signed Certificate (host.crt) following
 <p> &nbsp; </p>
 <br> Click to “View” the Connected App
 <br> Click the “Manage Consumer Details” to view the Consumer Key and Consumer Secret. Both values will be required for Step 5.
+<p> &nbsp; </p> 
+ <p> Step 5 - Acquire a Data Cloud JWT Token </p> 
+  <p> 
+To generate a valid Data Cloud JWT Token, a number of key org values will be required.
 
- <p> &nbsp; </p> 
+<p> Collect your org information </p>
+To successfully authenticate, you will need the following information:
+
+<br> Core Org Instance
+<br> Example - https://epic001-orgfarm-231003.my.salesforce.com
+<br> Data Cloud Instance
+<br> Example - https://mfrwcnlcm84tmzj-g-yw0zjxg8.c360a.salesforce.com
+<br> Username
+<br> Password
+<br> Connected App Client ID - From Step 4
+<br> Connected App Client Secret - From Step 4
+<br> server.key file from Self Signed Certificate
+
+
+<p> Authentication with Data Cloud </p>
+Authentication with Data Cloud is a two step process that is described here:
+<a target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.c360a_api.meta/c360a_api/c360a_getting_started_with_cdp.htm?q=bearer+token">  https://developer.salesforce.com/docs/atlas.en-us.c360a_api.meta/c360a_api/c360a_getting_started_with_cdp.htm?q=bearer+token  </a>
+
+ <p>Acquire the (Core) Access Token </p>
+
+<p>In this process, we will submit a JWT token to get a Core Access token using this call:</p>
+
+<br> POST https://login.salesforce.com/services/oauth2/token
+<br> Content-Type : x-www-form-urlencoded
+<br> grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
+<br> &assertion=<CORE JWT TOKEN>
+
+
+<p> Create the JWT token
+ To create the JWT, we will use the instructions provided here:
+<a target="_blank" href="https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_jwt_flow.htm&type=5"> https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_jwt_flow.htm&type=5 </a>
+</p>
+
+<p> Go to the website jwt.io (or any other free site that generates JWTs) </p>
+We will be filling in the “Decoded” information on the right hand side of the screen to generate an encoded JWT on the left hand side of the screen.
+
+<p> &nbsp;</p>
+
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min16.png> </div>
  <p> &nbsp; </p> 
+    <br> Algorithym - Select “RS256”
+    <br> Header Values
+          <br> * "alg": "RS256",
+          <br> * "typ": "JWT"
+    <br> Payload
+          <br> * "iss": <Connected App Client ID>,
+          <br> * "aud": "https://login.salesforce.com",
+          <br> * "sub": <username>,
+          <br> * "exp": "1735743600"
+    <br> Public Key - empty
+     <br> Private Key - Contents of the “host.key” file
+
+
+  <br> Copy and save the JWT from the left side panel
+  <p> &nbsp; </p>
+            
  <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min17.png> </div>
  <p> &nbsp; </p> 
+            
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min18.png> </div>
  <p> &nbsp; </p> 
  <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min19.png> </div>
