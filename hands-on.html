@@ -553,27 +553,82 @@ For this exercise, we will be using the following schema that defines a simple O
   <p> Upload the data schema file created in Step 1 (Order-example01.yaml)</p>
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min05.png> </div>
  <p> &nbsp; </p> 
+  <p> Scroll to the bottom of the Ingestion API Source page and click the “Download All Object Endpoints” button.
+This will provide a YAML file with all the endpoints that will be helpful for later. </p>
  <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min06.png> </div>
  <p> &nbsp; </p> 
-<p> Scroll to the bottom of the Ingestion API Source page and click the “Download All Object Endpoints” button.
-This will provide a YAML file with all the endpoints that will be helpful for later. </p>
+<p> Step 3. Create a Data Stream </p>
+<p> Open the Data Cloud application and open the Data Streams tab </p>
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min07.png> </div>
  <p> &nbsp; </p> 
+  <p> Click “New” to create a new Data Stream. Select “Ingestion API”</p>
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min08.png> </div>
  <p> &nbsp; </p> 
+  <p> Select the Ingestion API schema created in Step 2.</p>
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min09.png> </div>
  <p> &nbsp; </p> 
+<p> Select the DLO to be created from the schema</p>
+<p> Define the Category (Engagement) and Primary Key (order_id) for the data stream </p>
+<p> Deploy the Data Stream </p>
+
+  <p> Step 4. Create a Connected App</p>
+  <p> Open the Salesforce Setup and navigate to the App Manager</p>
   <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min10.png> </div>
  <p> &nbsp; </p> 
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min11.png> </div>
  <p> &nbsp; </p> 
+  <p> Click on “New Connected App”</p>
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min12.png> </div>
  <p> &nbsp; </p> 
+
+<p> Fill in the “Connected App Name”, “API Name” and “Contact Email” fields</p>
+
+<p> Click “Enable OAuth Settings”</p>
+
+<p> Callback URL - For Postman, this should be: https://oauth.pstmn.io/v1/callback</p>
+<p> Selected OAuth Scopes - Select the following scopes:</p>
+<p> Manage user data via APIs (api) <br> 
+Perform requests at any time (refresh_token, offline_access) <br> 
+Manage Customer Data Platform Ingestion API data (cdp_ingest_api) <br> 
+Manage Customer Data Platform profile data (cdp_profile_api) <br> 
+Perform ANSI SQL queries on Customer Data Platform data (cdp_query_api) <br> 
+Perform segmentation on Customer Data Platform data (cdp_segment_api) <br> 
+From my understanding, only the first 3 scopes are mandatory <br> 
+Use Digital Signatures - Enable this checkbox <br> 
+</p>
+<p> 
+Create a Private Key (host.key) and Self Signed Certificate (host.crt) following these steps:
+<a target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.242.0.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_key_and_cert.htm"> https://developer.salesforce.com/docs/atlas.en-us.242.0.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_key_and_cert.htm </a>
+</p> 
+<p> Upload the server.crt file as your Digitial Signature file </p>
+  
  <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min13.png> </div>
  <p> &nbsp; </p> 
+<br>  Save the Connected App 
+<br>  NOTE: The digital certificate may not upload during the initial save of the Connected App. To make sure it has been properly uploaded. Re-open the Connected App and confirm. It may be necessary to Edit the Connected App and redo the Use Digitial Signature settings.
+
+<br>  Click on the menu and select “Manage” the Connected App
+<br>  https://help.salesforce.com/s/articleView?id=000390687&type=1
+<p> Change the following default values: </p>
+
+<br>  Permitted Users - Change to “Admin approved users are pre-authorized”
+<br> IP Relaxation - Change to “Relax IP Restrictions”
+<br> Refresh Token Policy - Change to “Refresh Token is Valid until revoked”
+<br> If you do not see any options in the Refresh Token Policy section, you need to update the OAuth Scopes to include “Perform requests at any time (refresh_token, offline access)”
+
+  <p> &nbp;</p>
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min14.png> </div>
+
+<p> Save the changes to the Connected App </p>
+<p> Click “Manage Profiles” to add your Profile to the Connected App </p>
+
+<p> Because we changed the Permitted Users to Admin Approved, we need to maually add our own Profile to the Connected App </p>
  <p> &nbsp; </p> 
  <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min15.png> </div>
+<p> &nbsp; </p>
+<br> Click to “View” the Connected App
+<br> Click the “Manage Consumer Details” to view the Consumer Key and Consumer Secret. Both values will be required for Step 5.
+
  <p> &nbsp; </p> 
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min16.png> </div>
  <p> &nbsp; </p> 
