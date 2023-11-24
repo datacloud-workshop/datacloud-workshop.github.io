@@ -629,7 +629,11 @@ Create a Private Key (host.key) and Self Signed Certificate (host.crt) following
 <br> Click to “View” the Connected App
 <br> Click the “Manage Consumer Details” to view the Consumer Key and Consumer Secret. Both values will be required for Step 5.
 <p> &nbsp; </p> 
- <p> Step 5 - Acquire a Data Cloud JWT Token </p> 
+
+<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min16.png> </div>
+ <p> &nbsp; </p> 
+
+<p> Step 5 - Acquire a Data Cloud JWT Token </p> 
   <p> 
 To generate a valid Data Cloud JWT Token, a number of key org values will be required.
 
@@ -671,29 +675,127 @@ We will be filling in the “Decoded” information on the right hand side of th
 
 <p> &nbsp;</p>
 
-<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min16.png> </div>
+
+            
+ <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min17.png> </div>
  <p> &nbsp; </p> 
-    <br> Algorithym - Select “RS256”
-    <br> Header Values
+<br> Algorithym - Select “RS256”
+ <br> Header Values
           <br> * "alg": "RS256",
           <br> * "typ": "JWT"
-    <br> Payload
+<br> Payload
           <br> * "iss": <Connected App Client ID>,
           <br> * "aud": "https://login.salesforce.com",
           <br> * "sub": <username>,
           <br> * "exp": "1735743600"
     <br> Public Key - empty
-     <br> Private Key - Contents of the “host.key” file
+ <br> Private Key - Contents of the “host.key” file
 
 
-  <br> Copy and save the JWT from the left side panel
-  <p> &nbsp; </p>
-            
- <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min17.png> </div>
- <p> &nbsp; </p> 
-            
+  <br> Copy and save the JWT from the left side panel   
+<p> &nbsp; </p>
 <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min18.png> </div>
  <p> &nbsp; </p> 
+
+<p> Acquire the Core Access Token</p>
+
+<br> In Postman, create the POST call:
+<br> POST https://login.salesforce.com/services/oauth2/token
+<br> Content-Type : x-www-form-urlencoded
+<br> grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
+<br> &assertion=<CORE JWT TOKEN>
+
+
+<p> An “access_token” should be returned.</p>
+<br> {
+<br>"access_token": "00DDn00000A9xUV!AR8AQOEBqa6VQQSUNi4JUQ1_uQ84jRuPHSv7PamDiHJOqiD4Q.yqxHc.T6.oS6x5BqLqOnH59Y5i9ehWQjF08Ym.TlSIBRyJ",
+<br>"scope": "cdp_query_api cdp_ingest_api cdp_segment_api api cdp_profile_api",
+<br>"instance_url": <CORE Instance URL>,
+<br>"id": "https://login.salesforce.com/id/00DDn00000A9xUVMAZ/005Dn000005pzRPIAY",
+<br>"token_type": "Bearer"
+<br>}
+
+
+<p>  Exchanging Access Token for CDP token </p>
+
+<p> This process will allow us to exchange the Core Access token for a Data Cloud (CDP) token</p>
+
+<p> In Postman, create the POST call: </p>
+
+<br> POST <CORE Instance URL>/services/a360/token
+<br> Content-Type : x-www-form-urlencoded
+<br> grant_type=urn:salesforce:grant-type:external:cdp
+<br> &subject_token=<CORE ACCESS TOKEN>
+<br> &subject_token_type=urn:ietf:params:oauth:token-type:access_token
+
+
+<p> A Data Cloud JWT access token should be returned </p>
+
+<br>{
+ <br>"access_token": <DATA CLOUD JWT TOKEN>,
+ <br>"instance_url": "m8ydmnbrh04d8y3dgy3tqnd0g1.c360a.salesforce.com",
+ <br>"token_type": "Bearer",
+ <br>"issued_token_type": "urn:ietf:params:oauth:token-type:jwt",
+ <br>"expires_in": 28800
+<br>}
+
+<p> The Data Cloud JWT token can be validated at jwt.io</p>
+
+
+<p> Step 6 - Send Data Into the Data Stream via the Ingestion API </p>
+
+<p>  The Ingestion API limits documented here: 
+https://developer.salesforce.com/docs/atlas.en-us.c360a_api.meta/c360a_api/c360a_api_get_started.htm </p>
+
+<br> a) Validate the data
+<br>  The data will be submitted in a JSON format within the Body of the API call and needs to match your target Data Stream
+<br> The data can be validated using the Synchronous Record Validation.
+<br> https://developer.salesforce.com/docs/atlas.en-us.c360a_api.meta/c360a_api/c360a_api_synchronous_record_validation.htm
+
+<br> b) Insert a record into the Data Stream
+<br>  https://developer.salesforce.com/docs/atlas.en-us.c360a_api.meta/c360a_api/c360a_api_insert_records.htm
+<p> &nbsp;</p>
+<br>  In Postman, create the POST call:
+<br>  POST <DATA CLOUD Instance URL>/api/v1/ingest/sources/{Data Stream Source}/(Data Stream Name}
+<br>  Authorization: Bearer {Data Cloud JWT Token}
+<br>  Content-Type : application/json
+<p> &nbsp;</p>
+<br>  <Sample Body>
+<br> {
+<br>  "data": [
+<br> {
+ <br>  "created": "2021-07-22T08:57:08.118Z",
+ <br>  "description": "Order WMF jh",
+ <br>  "email": "jh@yahoo.com",
+ <br>  "first_name": "Jim",
+ <br>  "total": 77506,
+ <br>  "last_name": "Henry",
+ <br> "ship_address": "9818 Main",
+ <br> "tax_rate": 12,
+ <br> "order_id": "7",
+ <br> "acct_id": "77"}
+<br> ]
+<br> }
+<p> &nbsp; </p>
+<br> If successful, an accepted response will be received
+
+<br> {
+<br> "accepted": true
+<br> }
+<p> &nbsp;</p>
+<br> NOTE: The POST URL is specified in the Object Endpoints file downloaded in Step 2. A sample URL will look like this:
+<br> https://mfrwcnlcm84tmzj-g-yw0zjxg8.c360a.salesforce.com/api/v1/ingest/sources/wmf_orders/orders
+
+<p> &nbsp; </p>
+<br>  c) View the data in Data Cloud
+<br> Data from the Ingestion API can take several (up to 15) minutes to be processed
+<p> &nbsp; </p>
+<br> * Open the Customer Data Cloud application
+<br> * Navigate to the Data Explorer
+<br> * Select your DLO and object name
+<br> * Refresh to see the inserted record
+      
+            
  <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/min19.png> </div>
  <p> &nbsp; </p> 
  <p> &nbsp; </p> 
