@@ -354,62 +354,10 @@ some of the ways of leveraging Data Cloud in your business applications.</p>
   
   </div>
   <!-- Part 2 End -->
-
-    <!-- Part 3 Begin -->
 <div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
-<h2> Module - 3: Experiment (OPTIONAL) </h2> 
-  <div class="w3-container"> <div class="w3-bar w3-teal"> <p> <center>  Calculated Insights </center> </p> </div> </div>
+<h2> Module - 3: Experiment </h2> 
+</div>
 
-
-  <p> In the following section let's explore Calculated Insights.</p>
-<details>    
-<summary class="accordion">  Calculated Insights </summary>
-  <p>   <p> Calculated Insights and Streaming Insights are  analytics tool natively available in the Data Cloud. </p>
-  <p> Calculated Insights perform complex calculations on data aggregated in batches, while Streaming Insights 
-  work on events happening in near-real time.</p></p>
-<p> Calculated Insight lets you define metrics
- data in Data Cloud using either SQL or point and click builder. These metrics 
-  can then be used in other parts of Data Cloud e.g., as an attribute while creating marketing segments or 
-  as a triggerring event  for Data Actions or for vizualizing data patterns.
-</p>  
-  <p> Let's create a Calculated Insight.</p>
-  <p> We shall create a calculated insight that contains one record per unified individual and 
-    includes counts that show how often each person appears as a contact, 
-    lead, and account, and how often they appear across multiple orgs, if applicable.
-</p>
-<div class="accordionDrop">
-<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-1.jpg> </div>
-  <p> &nbsp;</p>
-<p> You can copy paste the following SQL in the next screen to replace the placeholder code in the SQL Query box.
-
-<blockquote> 
-SELECT UnifiedIndividual__dlm.ssot__Id__c AS Customer_Id__c ,approx_count_distinct(iil.Contact_Id__c) AS Contact_Count__c ,approx_count_distinct(iil.Lead_Id__c) AS Lead_Count__c ,approx_count_distinct(iil.ssot__AccountId__c) AS Account_Contact_Count__c ,approx_count_distinct(iil.ssot__DataSourceId__c) AS Salesforce_Org_Count__c FROM UnifiedIndividual__dlm /* The sub-query is required to perform case statements prior to aggregating */ LEFT JOIN ( SELECT IndividualIdentityLink__dlm.UnifiedRecordId__c AS UnifiedRecordId__c ,IndividualIdentityLink__dlm.SourceRecordId__c AS SourceRecordId__c ,IndividualIdentityLink__dlm.ssot__DataSourceId__c AS ssot__DataSourceId__c ,CASE WHEN IndividualIdentityLink__dlm.ssot__DataSourceObjectId__c = 'Contact' THEN IndividualIdentityLink__dlm.SourceRecordId__c ELSE NULL END Contact_Id__c ,CASE WHEN IndividualIdentityLink__dlm.ssot__DataSourceObjectId__c = 'Lead' THEN IndividualIdentityLink__dlm.SourceRecordId__c ELSE NULL END Lead_Id__c ,AccountContact.ssot__AccountId__c AS ssot__AccountId__c FROM IndividualIdentityLink__dlm LEFT JOIN ( SELECT DISTINCT ssot__AccountContact__dlm.ssot__IndividualId__c AS ssot__IndividualId__c ,ssot__AccountContact__dlm.ssot__AccountId__c AS ssot__AccountId__c FROM ssot__AccountContact__dlm ) AccountContact ON IndividualIdentityLink__dlm.SourceRecordId__c = AccountContact.ssot__IndividualId__c WHERE IndividualIdentityLink__dlm.ssot__DataSourceId__c LIKE 'Salesforce_00D%' ) iil /* "Data Source ID like Salesforce_00D%" identifies Salesforce CRM sources. 00D is the prefix for the Org ID object type. * This is optional but it adds greater certainty that this is a Salesforce Org source ID from the connector.*/ ON UnifiedIndividual__dlm.ssot__Id__c = iil.UnifiedRecordId__c GROUP BY Customer_Id__c
-
-</blockquote>
-
-</p>
-  
-<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-2.jpg> </div>
-    <p> &nbsp;</p>
- <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-3.jpg> </div>
-    <p> &nbsp;</p>
-  <p style="color:blue;">  <strong>
-    After you have created the Calculated Insight, ping your instructor so he/she can Publish it. 
-  A participant user does not have the permissions required to publish a Calculated Insight.</strong>
-</p>
- <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-4.jpg> </div>
-
-  <p> Once your instructor has published your Calculated Insight, you can view the results in Data Explorer. </p>
- <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-5.jpg> </div>
-</div>   
- <p> The above example gives you a quick look at the Calculated Insights tool. The result of this calculated insight 
- could be viewed in Data Explorer in Data Cloud, or it could be pulled to display in any connected system using 
- Data Actions or API integration.</p>
-   <p> Calculated Insights are especially useful for segmentation of customers for marketing journeys. In one of the following sectons we shall create another Calculated Insight
- and use it as an attribute to segment customers. </p> 
- </details> 
-</div> 
-   <!-- Part 3  End -->
   <!-- Part 3a  begins -->
   <div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
 <div class="w3-container"> <div class="w3-bar w3-teal"> <p> <center>  Segmentation & Activation </center> </p> </div> </div>
@@ -828,6 +776,62 @@ You have now completed many of the key ways of interacting with Salesforce Data 
   screenshots of each step that you can review  without actually doing the steps in live environment.
 </p>
 
+   <!-- Part x Begin -->
+<div class="w3-container" style= "margin-top:30px; margin-bottom:30px;"> 
+ 
+  <div class="w3-container"> <div class="w3-bar w3-teal"> <p> <center>  Calculated Insights </center> </p> </div> </div>
+  <p> In the following section let's explore Calculated Insights.</p>
+<details>    
+<summary class="accordion">  Calculated Insights </summary>
+  <p>   <p> Calculated Insights and Streaming Insights are  analytics tool natively available in the Data Cloud. </p>
+  <p> Calculated Insights perform complex calculations on data aggregated in batches, while Streaming Insights 
+  work on events happening in near-real time.</p></p>
+<p> Calculated Insight lets you define metrics
+ data in Data Cloud using either SQL or point and click builder. These metrics 
+  can then be used in other parts of Data Cloud e.g., as an attribute while creating marketing segments or 
+  as a triggerring event  for Data Actions or for vizualizing data patterns.
+</p>  
+  <p> Let's create a Calculated Insight.</p>
+  <p> We shall create a calculated insight that contains one record per unified individual and 
+    includes counts that show how often each person appears as a contact, 
+    lead, and account, and how often they appear across multiple orgs, if applicable.
+</p>
+<div class="accordionDrop">
+<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-1.jpg> </div>
+  <p> &nbsp;</p>
+<p> You can copy paste the following SQL in the next screen to replace the placeholder code in the SQL Query box.
+
+<blockquote> 
+SELECT UnifiedIndividual__dlm.ssot__Id__c AS Customer_Id__c ,approx_count_distinct(iil.Contact_Id__c) AS Contact_Count__c ,approx_count_distinct(iil.Lead_Id__c) AS Lead_Count__c ,approx_count_distinct(iil.ssot__AccountId__c) AS Account_Contact_Count__c ,approx_count_distinct(iil.ssot__DataSourceId__c) AS Salesforce_Org_Count__c FROM UnifiedIndividual__dlm /* The sub-query is required to perform case statements prior to aggregating */ LEFT JOIN ( SELECT IndividualIdentityLink__dlm.UnifiedRecordId__c AS UnifiedRecordId__c ,IndividualIdentityLink__dlm.SourceRecordId__c AS SourceRecordId__c ,IndividualIdentityLink__dlm.ssot__DataSourceId__c AS ssot__DataSourceId__c ,CASE WHEN IndividualIdentityLink__dlm.ssot__DataSourceObjectId__c = 'Contact' THEN IndividualIdentityLink__dlm.SourceRecordId__c ELSE NULL END Contact_Id__c ,CASE WHEN IndividualIdentityLink__dlm.ssot__DataSourceObjectId__c = 'Lead' THEN IndividualIdentityLink__dlm.SourceRecordId__c ELSE NULL END Lead_Id__c ,AccountContact.ssot__AccountId__c AS ssot__AccountId__c FROM IndividualIdentityLink__dlm LEFT JOIN ( SELECT DISTINCT ssot__AccountContact__dlm.ssot__IndividualId__c AS ssot__IndividualId__c ,ssot__AccountContact__dlm.ssot__AccountId__c AS ssot__AccountId__c FROM ssot__AccountContact__dlm ) AccountContact ON IndividualIdentityLink__dlm.SourceRecordId__c = AccountContact.ssot__IndividualId__c WHERE IndividualIdentityLink__dlm.ssot__DataSourceId__c LIKE 'Salesforce_00D%' ) iil /* "Data Source ID like Salesforce_00D%" identifies Salesforce CRM sources. 00D is the prefix for the Org ID object type. * This is optional but it adds greater certainty that this is a Salesforce Org source ID from the connector.*/ ON UnifiedIndividual__dlm.ssot__Id__c = iil.UnifiedRecordId__c GROUP BY Customer_Id__c
+
+</blockquote>
+
+</p>
+  
+<div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-2.jpg> </div>
+    <p> &nbsp;</p>
+ <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-3.jpg> </div>
+    <p> &nbsp;</p>
+  <p style="color:blue;">  <strong>
+    After you have created the Calculated Insight, ping your instructor so he/she can Publish it. 
+  A participant user does not have the permissions required to publish a Calculated Insight.</strong>
+</p>
+ <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-4.jpg> </div>
+
+  <p> Once your instructor has published your Calculated Insight, you can view the results in Data Explorer. </p>
+ <div class="w3-card w3-container w3-center w3-mobile" > <img class="w3-image" src=/img/calculatedinsight-5.jpg> </div>
+</div>   
+ <p> The above example gives you a quick look at the Calculated Insights tool. The result of this calculated insight 
+ could be viewed in Data Explorer in Data Cloud, or it could be pulled to display in any connected system using 
+ Data Actions or API integration.</p>
+   <p> Calculated Insights are especially useful for segmentation of customers for marketing journeys. In one of the following sectons we shall create another Calculated Insight
+ and use it as an attribute to segment customers. </p> 
+ </details> 
+</div> 
+    <!-- Part x ends -->
+
+
+    
     
  <div class="w3-container"> <div class="w3-bar w3-teal"> <p> <center> Connect Tableau with Data Cloud </center>  </p> </div> </div>
 <p> 
