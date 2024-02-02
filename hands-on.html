@@ -380,8 +380,9 @@ Let's create a Calculated Insight.
 <p> &nbsp;</p>
   <blockquote> 
     <strong> Replace the placeholder code with the following sql.</strong>
-    <p>SELECT SUM(ssot__SalesOrder__dlm.ssot__GrandTotalAmount__c) as customer_spend__c, ssot__Individual__dlm.ssot__Id__c as custid__c FROM ssot__SalesOrder__dlm JOIN ssot__Individual__dlm ON ssot__SalesOrder__dlm.ssot__Id__c = ssot__Individual__dlm.salesOrderID__c GROUP BY custid__c
-  </p>
+    <p>
+SELECT SUM(ssot__SalesOrder__dlm.ssot__TotalAmount__c) as customer_spend__c, ssot__Individual__dlm.ssot__Id__c as custid__c FROM ssot__SalesOrder__dlm JOIN ssot__Individual__dlm ON ssot__SalesOrder__dlm.ssot__BillToContactId__c = ssot__Individual__dlm.ssot__Id__c GROUP BY custid__c      
+    </p>
     <p style="color:blue;"> Gotcha: If the above code gives a syntax error check in your environment for an existing Calculated Insight (CI) 
     called 'Customer Spend'. Use the code from that CI as it's possible that in your environment the 
       field names may be slightly different. </p>
